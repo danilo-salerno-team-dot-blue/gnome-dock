@@ -1,0 +1,16 @@
+{
+  "uuid": "mac-ubuntu-dock@danilo.projects",
+  "name": "macOS & Ubuntu Dock",
+  "description": "A feature-packed GNOME Shell Dock extension combining macOS glassmorphism, magnification, Ubuntu dock styling, intelligent auto-hide, active window indicators, app launcher, and trash icon.",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "version": 1,
+  "url": "https://github.com/danilo/gnome-dock",
+  "settings-schema": "org.gnome.shell.extensions.mac-ubuntu-dock"
+}

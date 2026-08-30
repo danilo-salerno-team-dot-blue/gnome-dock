@@ -1,0 +1,135 @@
+/* macOS & Ubuntu Dock Extension stylesheet */
+
+/* Main outer container */
+.dock-outer-box {
+    padding: 6px;
+    transition: all 250ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base dock panel styling */
+.dock-container {
+    padding: 6px 10px;
+    margin: 4px;
+    transition: all 250ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* macOS Preset: Glassmorphic Floating Dock */
+.dock-container.dock-preset-macos {
+    background-color: rgba(28, 28, 38, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Ubuntu Preset: Charcoal Panel with Signature Accents */
+.dock-container.dock-preset-ubuntu {
+    background-color: rgba(18, 18, 18, 0.94);
+    border: 1px solid rgba(233, 84, 32, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Classic Preset */
+.dock-container.dock-preset-classic {
+    background-color: rgba(36, 36, 36, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Dock Item Button */
+.dock-item-button {
+    padding: 4px;
+    margin: 0 3px;
+    border-radius: 14px;
+    transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dock-item-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dock-item-button:active {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(0.95);
+}
+
+/* Active running application indicators */
+.dock-indicator {
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin-top: 3px;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    transition: all 200ms ease;
+}
+
+/* macOS style dot */
+.dock-indicator-macos {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ubuntu style orange indicator */
+.dock-indicator-ubuntu {
+    width: 6px;
+    height: 6px;
+    background-color: #e95420;
+    box-shadow: 0 0 8px rgba(233, 84, 32, 0.8);
+}
+
+/* Dash style bar */
+.dock-indicator-dash {
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #3584e4;
+}
+
+/* Separator between pinned, running, and trash sections */
+.dock-separator {
+    width: 1px;
+    height: 32px;
+    margin: 4px 8px;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.dock-separator-vertical {
+    height: 1px;
+    width: 32px;
+    margin: 8px 4px;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Launcher / Launchpad Button */
+.dock-launcher-button {
+    padding: 6px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dock-launcher-button:hover {
+    background-color: rgba(233, 84, 32, 0.3);
+}
+
+/* Trash Icon Button */
+.dock-trash-button {
+    padding: 6px;
+    border-radius: 16px;
+}
+
+.dock-trash-button:hover {
+    background-color: rgba(220, 53, 69, 0.25);
+}
+
+/* Tooltip Popup */
+.dock-tooltip {
+    background-color: rgba(20, 20, 26, 0.92);
+    color: #ffffff;
+    font-size: 11pt;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.mac-ubuntu-dock" path="/org/gnome/shell/extensions/mac-ubuntu-dock/">
+    <key name="dock-preset" type="s">
+      <default>'macos'</default>
+      <summary>Dock Style Preset</summary>
+      <description>Visual preset mode: 'macos', 'ubuntu', or 'classic'</description>
+    </key>
+    <key name="dock-position" type="s">
+      <default>'bottom'</default>
+      <summary>Dock Screen Position</summary>
+      <description>Screen edge for dock placement: 'bottom', 'left', 'right', or 'top'</description>
+    </key>
+    <key name="icon-size" type="i">
+      <default>48</default>
+      <summary>Dock Icon Size</summary>
+      <description>Base icon size in pixels (24 to 96)</description>
+    </key>
+    <key name="enable-magnification" type="b">
+      <default>true</default>
+      <summary>Enable macOS Magnification</summary>
+      <description>Smooth icon zooming on mouse hover proximity</description>
+    </key>
+    <key name="magnification-scale" type="d">
+      <default>1.4</default>
+      <summary>Magnification Max Scale Factor</summary>
+      <description>Maximum zoom scale factor when hovering icons</description>
+    </key>
+    <key name="autohide" type="b">
+      <default>true</default>
+      <summary>Intelligent Auto-Hide</summary>
+      <description>Automatically hide dock when windows overlap</description>
+    </key>
+    <key name="autohide-delay" type="i">
+      <default>300</default>
+      <summary>Auto-Hide Delay (ms)</summary>
+      <description>Delay in milliseconds before dock hides</description>
+    </key>
+    <key name="show-trash" type="b">
+      <default>true</default>
+      <summary>Show Trash Icon</summary>
+      <description>Include macOS-style Trash bin on the dock</description>
+    </key>
+    <key name="show-launcher" type="b">
+      <default>true</default>
+      <summary>Show Applications Launcher Button</summary>
+      <description>Include Launchpad / App Grid icon on dock</description>
+    </key>
+    <key name="launcher-position" type="s">
+      <default>'start'</default>
+      <summary>Applications Launcher Position</summary>
+      <description>Position of App Launcher button: 'start' or 'end'</description>
+    </key>
+    <key name="indicator-style" type="s">
+      <default>'macos'</default>
+      <summary>Running App Indicator Style</summary>
+      <description>Style of indicator mark for open apps: 'macos', 'ubuntu', or 'dash'</description>
+    </key>
+    <key name="dock-translucency" type="d">
+      <default>0.75</default>
+      <summary>Glass Translucency</summary>
+      <description>Background opacity factor (0.1 to 1.0)</description>
+    </key>
+    <key name="dock-corner-radius" type="i">
+      <default>24</default>
+      <summary>Background Corner Radius</summary>
+      <description>Border radius for dock container in pixels</description>
+    </key>
+    <key name="show-tooltips" type="b">
+      <default>true</default>
+      <summary>Show App Tooltips</summary>
+      <description>Display application title tooltips on hover</description>
+    </key>
+  </schema>
+</schemalist>
