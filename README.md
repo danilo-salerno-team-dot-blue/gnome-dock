@@ -2,6 +2,8 @@
 
 A modern, highly customizable GNOME Shell Dock extension inspired by **Dash to Dock**.
 
+![GNOME Dock Preview](assets/preview.png)
+
 Built using modern **GNOME Shell ESM JS**, **St Widgets**, **Clutter**, and **LibAdwaita** preferences GUI for **GNOME Shell 45 through 50+**.
 
 ---
@@ -39,6 +41,8 @@ Built using modern **GNOME Shell ESM JS**, **St Widgets**, **Clutter**, and **Li
 
 ```
 gnome-dock/
+├── assets/
+│   └── preview.png                                    # High-res extension preview image
 ├── metadata.json                                      # GNOME Shell extension metadata
 ├── stylesheet.css                                     # Glassmorphism & dock styles
 ├── extension.js                                       # Main GNOME 45+ Extension class
