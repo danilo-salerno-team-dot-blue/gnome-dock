@@ -71,7 +71,7 @@ make install
 ```bash
 make pack
 ```
-This generates `gnome-dock@danilo.projects.shell-extension.zip` ready for uploading.
+This generates `gnome-dock@danilosalerno.shell-extension.zip` ready for uploading.
 
 ---
 
@@ -79,7 +79,7 @@ This generates `gnome-dock@danilo.projects.shell-extension.zip` ready for upload
 
 To open the Preferences GUI:
 ```bash
-gnome-extensions prefs gnome-dock@danilo.projects
+gnome-extensions prefs gnome-dock@danilosalerno
 ```
 
 Or open **GNOME Extensions** / **Extension Manager** app on your desktop and click settings next to **GNOME Dock**.

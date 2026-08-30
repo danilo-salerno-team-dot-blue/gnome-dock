@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-UUID="gnome-dock@danilo.projects"
+UUID="gnome-dock@danilosalerno"
 TARGET_DIR="$HOME/.local/share/gnome-shell/extensions/$UUID"
 
 echo "=== Building and Installing GNOME Dock Extension ==="

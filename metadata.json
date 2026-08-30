@@ -1,5 +1,5 @@
 {
-  "uuid": "gnome-dock@danilo.projects",
+  "uuid": "gnome-dock@danilosalerno",
   "name": "GNOME Dock",
   "description": "A feature-packed GNOME Shell Dock extension with glassmorphism, icon magnification, intelligent auto-hide, active window indicators, app launcher, and trash icon.",
   "shell-version": [
@@ -11,6 +11,6 @@
     "50"
   ],
   "version": 1,
-  "url": "https://github.com/danilo-salerno-team-dot-blue/gnome-dock",
+  "url": "https://github.com/danilosalerno/gnome-dock",
   "settings-schema": "org.gnome.shell.extensions.gnome-dock"
 }
