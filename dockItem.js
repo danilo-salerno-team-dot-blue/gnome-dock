@@ -15,7 +15,7 @@ export const DockItemType = {
 };
 
 export const DockItem = GObject.registerClass({
-    GTypeName: 'MacUbuntuDockItem',
+    GTypeName: 'GnomeDockItem',
 }, class DockItem extends St.Button {
     _init(itemType, app = null, settings = null, iconSize = 48) {
         super._init({
@@ -48,7 +48,7 @@ export const DockItem = GObject.registerClass({
 
         // Active indicator container
         this._indicator = new St.Widget({
-            style_class: 'dock-indicator dock-indicator-macos',
+            style_class: 'dock-indicator dock-indicator-dot',
             visible: false,
         });
         this._box.add_child(this._indicator);
@@ -134,13 +134,13 @@ export const DockItem = GObject.registerClass({
         if (isRunning) {
             this._indicator.show();
 
-            const indicatorStyle = this.settings?.get_string('indicator-style') || 'macos';
-            if (indicatorStyle === 'ubuntu') {
-                this._indicator.style_class = 'dock-indicator dock-indicator-ubuntu';
-            } else if (indicatorStyle === 'dash') {
-                this._indicator.style_class = 'dock-indicator dock-indicator-dash';
+            const indicatorStyle = this.settings?.get_string('indicator-style') || 'dot';
+            if (indicatorStyle === 'bar') {
+                this._indicator.style_class = 'dock-indicator dock-indicator-bar';
+            } else if (indicatorStyle === 'line') {
+                this._indicator.style_class = 'dock-indicator dock-indicator-line';
             } else {
-                this._indicator.style_class = 'dock-indicator dock-indicator-macos';
+                this._indicator.style_class = 'dock-indicator dock-indicator-dot';
             }
         } else {
             this._indicator.hide();
@@ -218,16 +218,16 @@ export const DockItem = GObject.registerClass({
         this._menu = new PopupMenu.PopupMenu(this, 0.5, BoxPointer.PopupAnimation.FULL);
 
         if (this.itemType === DockItemType.LAUNCHER) {
-            const header = new PopupMenu.PopupMenuItem(_('App Grid / Overview'), { reactive: false });
+            const header = new PopupMenu.PopupMenuItem('App Grid / Overview', { reactive: false });
             this._menu.addMenuItem(header);
         } else if (this.itemType === DockItemType.TRASH) {
-            const openTrash = new PopupMenu.PopupMenuItem(_('Open Trash'));
+            const openTrash = new PopupMenu.PopupMenuItem('Open Trash');
             openTrash.connect('activate', () => {
                 Gio.AppInfo.launch_default_for_uri('trash:///', null);
             });
             this._menu.addMenuItem(openTrash);
 
-            const emptyTrash = new PopupMenu.PopupMenuItem(_('Empty Trash'));
+            const emptyTrash = new PopupMenu.PopupMenuItem('Empty Trash');
             emptyTrash.connect('activate', () => {
                 try {
                     const proc = new Gio.Subprocess({
@@ -247,7 +247,7 @@ export const DockItem = GObject.registerClass({
             this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
             // New window option
-            const newWindowItem = new PopupMenu.PopupMenuItem(_('New Window'));
+            const newWindowItem = new PopupMenu.PopupMenuItem('New Window');
             newWindowItem.connect('activate', () => {
                 this.app.open_new_window(-1);
             });
@@ -261,7 +261,7 @@ export const DockItem = GObject.registerClass({
             const isFavorite = favoriteAppSet.has(appId);
 
             const pinItem = new PopupMenu.PopupMenuItem(
-                isFavorite ? _('Unpin from Dock') : _('Pin to Dock')
+                isFavorite ? 'Unpin from Dock' : 'Pin to Dock'
             );
             pinItem.connect('activate', () => {
                 let favorites = global.settings?.get_strv('favorite-apps') || [];
@@ -277,7 +277,7 @@ export const DockItem = GObject.registerClass({
             // Quit app option
             if (this.app.state === Shell.AppState.RUNNING) {
                 this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-                const quitItem = new PopupMenu.PopupMenuItem(_('Quit'));
+                const quitItem = new PopupMenu.PopupMenuItem('Quit');
                 quitItem.connect('activate', () => {
                     this.app.request_quit();
                 });

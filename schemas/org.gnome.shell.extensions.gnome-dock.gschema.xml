@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.mac-ubuntu-dock" path="/org/gnome/shell/extensions/mac-ubuntu-dock/">
+  <schema id="org.gnome.shell.extensions.gnome-dock" path="/org/gnome/shell/extensions/gnome-dock/">
     <key name="dock-preset" type="s">
-      <default>'macos'</default>
+      <default>'glass'</default>
       <summary>Dock Style Preset</summary>
-      <description>Visual preset mode: 'macos', 'ubuntu', or 'classic'</description>
+      <description>Visual preset mode: 'glass', 'charcoal', or 'classic'</description>
     </key>
     <key name="dock-position" type="s">
       <default>'bottom'</default>
@@ -18,7 +18,7 @@
     </key>
     <key name="enable-magnification" type="b">
       <default>true</default>
-      <summary>Enable macOS Magnification</summary>
+      <summary>Enable Icon Magnification</summary>
       <description>Smooth icon zooming on mouse hover proximity</description>
     </key>
     <key name="magnification-scale" type="d">
@@ -39,12 +39,12 @@
     <key name="show-trash" type="b">
       <default>true</default>
       <summary>Show Trash Icon</summary>
-      <description>Include macOS-style Trash bin on the dock</description>
+      <description>Include Trash bin on the dock</description>
     </key>
     <key name="show-launcher" type="b">
       <default>true</default>
       <summary>Show Applications Launcher Button</summary>
-      <description>Include Launchpad / App Grid icon on dock</description>
+      <description>Include App Grid launcher icon on dock</description>
     </key>
     <key name="launcher-position" type="s">
       <default>'start'</default>
@@ -52,9 +52,9 @@
       <description>Position of App Launcher button: 'start' or 'end'</description>
     </key>
     <key name="indicator-style" type="s">
-      <default>'macos'</default>
+      <default>'dot'</default>
       <summary>Running App Indicator Style</summary>
-      <description>Style of indicator mark for open apps: 'macos', 'ubuntu', or 'dash'</description>
+      <description>Style of indicator mark for open apps: 'dot', 'bar', or 'line'</description>
     </key>
     <key name="dock-translucency" type="d">
       <default>0.75</default>

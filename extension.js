@@ -2,7 +2,7 @@ import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import { DockContainer } from './dockContainer.js';
 
-export default class MacUbuntuDockExtension extends Extension {
+export default class GnomeDockExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
 

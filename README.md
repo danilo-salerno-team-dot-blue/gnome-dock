@@ -1,6 +1,6 @@
-# macOS & Ubuntu Dock Extension for GNOME Shell
+# GNOME Dock Extension for GNOME Shell
 
-A modern, highly customizable GNOME Shell Dock extension inspired by **Dash to Dock**, **macOS Dock**, and **Ubuntu Dock**.
+A modern, highly customizable GNOME Shell Dock extension inspired by **Dash to Dock**.
 
 Built using modern **GNOME Shell ESM JS**, **St Widgets**, **Clutter**, and **LibAdwaita** preferences GUI for **GNOME Shell 45 through 50+**.
 
@@ -8,20 +8,19 @@ Built using modern **GNOME Shell ESM JS**, **St Widgets**, **Clutter**, and **Li
 
 ## ✨ Features
 
-- 🍎 **macOS Glass Preset**:
-  - Floating pill container with translucent glassmorphism (`rgba(28, 28, 38, 0.65)`).
-  - Smooth **macOS Icon Magnification** continuous zoom on hover.
-  - Active running app indicators (glowing dots).
-  - Custom macOS-style **Trash Bin** integration (`trash:///` launcher & empty trash context menu).
-- 🟠 **Ubuntu Dock Preset**:
-  - Dark Charcoal bar aesthetic with signature Ubuntu Orange (`#E95420`) active indicator dots/bars.
+- 💎 **Glassmorphic & Dark Presets**:
+  - Glassmorphic pill container with translucent blur aesthetic (`rgba(28, 28, 38, 0.65)`).
+  - Charcoal & Classic Dark mode options.
+  - Smooth **Icon Magnification** continuous zoom on hover.
+  - Active running app indicators (glowing dots, accent bars, or lines).
+  - **Trash Bin** integration (`trash:///` launcher & empty trash context menu).
   - Classic GNOME overview / App Grid launcher shortcut button.
 - ⚡ **Intelligent Auto-Hide**:
   - Automatically hides when active windows overlap or touch the dock area.
   - Instant reveal on mouse hover proximity.
 - ⚙️ **Rich Preference GUI (`prefs.js`)**:
   - Built natively with **LibAdwaita (`Adw.PreferencesWindow`)**.
-  - Style Preset selection (macOS, Ubuntu, Classic).
+  - Style Preset selection (Glassmorphic, Charcoal, Classic).
   - Screen placement (Bottom, Left, Right, Top).
   - Adjustable icon size (24px to 96px).
   - Translucency & corner radius controls.
@@ -41,14 +40,14 @@ Built using modern **GNOME Shell ESM JS**, **St Widgets**, **Clutter**, and **Li
 ```
 gnome-dock/
 ├── metadata.json                                      # GNOME Shell extension metadata
-├── stylesheet.css                                     # Glassmorphism & Ubuntu dock styles
+├── stylesheet.css                                     # Glassmorphism & dock styles
 ├── extension.js                                       # Main GNOME 45+ Extension class
 ├── prefs.js                                           # LibAdwaita preferences window
 ├── dockContainer.js                                   # Main floating dock actor & autohide logic
 ├── dockItem.js                                        # Dock icon item widget, magnification & context menus
 ├── dockManager.js                                     # Tracks favorite apps & running process states
 ├── schemas/
-│   └── org.gnome.shell.extensions.mac-ubuntu-dock.gschema.xml  # GSettings schema XML
+│   └── org.gnome.shell.extensions.gnome-dock.gschema.xml  # GSettings schema XML
 ├── Makefile                                           # Build & installation commands
 └── install.sh                                         # One-click installation script
 ```
@@ -72,7 +71,7 @@ make install
 ```bash
 make pack
 ```
-This generates `mac-ubuntu-dock@danilo.projects.shell-extension.zip` ready for uploading.
+This generates `gnome-dock@danilo.projects.shell-extension.zip` ready for uploading.
 
 ---
 
@@ -80,10 +79,10 @@ This generates `mac-ubuntu-dock@danilo.projects.shell-extension.zip` ready for u
 
 To open the Preferences GUI:
 ```bash
-gnome-extensions prefs mac-ubuntu-dock@danilo.projects
+gnome-extensions prefs gnome-dock@danilo.projects
 ```
 
-Or open **GNOME Extensions** / **Extension Manager** app on your desktop and click settings next to **macOS & Ubuntu Dock**.
+Or open **GNOME Extensions** / **Extension Manager** app on your desktop and click settings next to **GNOME Dock**.
 
 ---
 

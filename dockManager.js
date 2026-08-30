@@ -2,7 +2,7 @@ import Shell from 'gi://Shell';
 import GObject from 'gi://GObject';
 
 export const DockManager = GObject.registerClass({
-    GTypeName: 'MacUbuntuDockManager',
+    GTypeName: 'GnomeDockManager',
     Signals: {
         'dock-apps-changed': {},
         'app-state-changed': { param_types: [Shell.App.$gtype] },

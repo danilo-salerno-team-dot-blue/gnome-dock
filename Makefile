@@ -1,4 +1,4 @@
-EXTENSION_UUID = mac-ubuntu-dock@danilo.projects
+EXTENSION_UUID = gnome-dock@danilo.projects
 INSTALL_DIR = $(HOME)/.local/share/gnome-shell/extensions/$(EXTENSION_UUID)
 
 .PHONY: all schemas install uninstall pack clean restart-shell

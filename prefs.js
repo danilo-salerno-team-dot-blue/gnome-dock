@@ -3,7 +3,7 @@ import Gtk from 'gi://Gtk';
 import Gio from 'gi://Gio';
 import { ExtensionPreferences } from 'resource:///org/gnome/shell/extensions/prefs.js';
 
-export default class MacUbuntuDockPreferences extends ExtensionPreferences {
+export default class GnomeDockPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
 
@@ -18,14 +18,14 @@ export default class MacUbuntuDockPreferences extends ExtensionPreferences {
 
         const groupPresets = new Adw.PreferencesGroup({
             title: 'Dock Style Preset',
-            description: 'Choose between macOS floating glass look or Ubuntu side/bottom dock',
+            description: 'Choose layout and theme style preset',
         });
         pageAppearance.add(groupPresets);
 
         // Preset Combo
         const presetModel = Gtk.StringList.new([
-            'macOS Glass (Floating Pill)',
-            'Ubuntu Charcoal (Accent Indicators)',
+            'Glassmorphic Pill',
+            'Charcoal Dark Accent',
             'Classic Dark'
         ]);
         const presetRow = new Adw.ComboRow({
@@ -34,7 +34,7 @@ export default class MacUbuntuDockPreferences extends ExtensionPreferences {
             model: presetModel,
         });
 
-        const presetMap = ['macos', 'ubuntu', 'classic'];
+        const presetMap = ['glass', 'charcoal', 'classic'];
         const currentPreset = settings.get_string('dock-preset');
         const presetIdx = presetMap.indexOf(currentPreset);
         if (presetIdx >= 0) presetRow.selected = presetIdx;
@@ -43,13 +43,12 @@ export default class MacUbuntuDockPreferences extends ExtensionPreferences {
             const selectedStr = presetMap[presetRow.selected];
             settings.set_string('dock-preset', selectedStr);
 
-            // Auto set associated default indicators for preset
-            if (selectedStr === 'macos') {
-                settings.set_string('indicator-style', 'macos');
+            if (selectedStr === 'glass') {
+                settings.set_string('indicator-style', 'dot');
                 settings.set_int('dock-corner-radius', 24);
                 settings.set_boolean('enable-magnification', true);
-            } else if (selectedStr === 'ubuntu') {
-                settings.set_string('indicator-style', 'ubuntu');
+            } else if (selectedStr === 'charcoal') {
+                settings.set_string('indicator-style', 'bar');
                 settings.set_int('dock-corner-radius', 12);
             }
         });
@@ -142,7 +141,7 @@ export default class MacUbuntuDockPreferences extends ExtensionPreferences {
 
         // Magnification Switch
         const magRow = new Adw.SwitchRow({
-            title: 'macOS Icon Magnification',
+            title: 'Icon Magnification',
             subtitle: 'Smoothly expand icons as cursor moves over them',
         });
         settings.bind('enable-magnification', magRow, 'active', Gio.SettingsBindFlags.DEFAULT);
@@ -163,13 +162,13 @@ export default class MacUbuntuDockPreferences extends ExtensionPreferences {
         groupFX.add(magScaleRow);
 
         // Indicator Style Combo
-        const indModel = Gtk.StringList.new(['macOS Glowing White Dot', 'Ubuntu Signature Orange Dot', 'Dash Blue Bar']);
+        const indModel = Gtk.StringList.new(['Glowing Dot', 'Accent Bar', 'Accent Line']);
         const indRow = new Adw.ComboRow({
             title: 'Running App Indicator Style',
             subtitle: 'Visual marker below running applications',
             model: indModel,
         });
-        const indMap = ['macos', 'ubuntu', 'dash'];
+        const indMap = ['dot', 'bar', 'line'];
         const currentInd = settings.get_string('indicator-style');
         const indIdx = indMap.indexOf(currentInd);
         if (indIdx >= 0) indRow.selected = indIdx;
@@ -221,7 +220,7 @@ export default class MacUbuntuDockPreferences extends ExtensionPreferences {
         // Trash Bin Switch
         const trashRow = new Adw.SwitchRow({
             title: 'Show Trash Bin Icon',
-            subtitle: 'macOS style Trash shortcut on dock',
+            subtitle: 'Trash shortcut on dock',
         });
         settings.bind('show-trash', trashRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         groupItems.add(trashRow);

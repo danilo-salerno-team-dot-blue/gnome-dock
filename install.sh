@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-UUID="mac-ubuntu-dock@danilo.projects"
+UUID="gnome-dock@danilo.projects"
 TARGET_DIR="$HOME/.local/share/gnome-shell/extensions/$UUID"
 
-echo "=== Building and Installing macOS & Ubuntu Dock Extension ==="
+echo "=== Building and Installing GNOME Dock Extension ==="
 
 # 1. Compile Schemas
 echo "-> Compiling GSettings schemas..."

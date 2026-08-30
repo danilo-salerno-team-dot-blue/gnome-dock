@@ -9,11 +9,11 @@ import { DockItem, DockItemType } from './dockItem.js';
 import { DockManager } from './dockManager.js';
 
 export const DockContainer = GObject.registerClass({
-    GTypeName: 'MacUbuntuDockContainer',
+    GTypeName: 'GnomeDockContainer',
 }, class DockContainer extends St.Widget {
     _init(settings) {
         super._init({
-            name: 'MacUbuntuDockContainer',
+            name: 'GnomeDockContainer',
             reactive: true,
             track_hover: true,
         });
@@ -33,7 +33,7 @@ export const DockContainer = GObject.registerClass({
 
         // Inner styled container
         this._innerContainer = new St.BoxLayout({
-            style_class: 'dock-container dock-preset-macos',
+            style_class: 'dock-container dock-preset-glass',
             reactive: true,
             track_hover: true,
         });
@@ -70,7 +70,7 @@ export const DockContainer = GObject.registerClass({
             })
         );
 
-        // Mouse Motion for macOS Magnification
+        // Mouse Motion for Icon Magnification
         this.connect('motion-event', (actor, event) => {
             if (this.settings.get_boolean('enable-magnification')) {
                 this._onMotionEvent(event);
@@ -96,16 +96,16 @@ export const DockContainer = GObject.registerClass({
     }
 
     applySettings() {
-        const preset = this.settings.get_string('dock-preset') || 'macos';
+        const preset = this.settings.get_string('dock-preset') || 'glass';
         const position = this.settings.get_string('dock-position') || 'bottom';
         const isVertical = position === 'left' || position === 'right';
 
         this._outerBox.vertical = isVertical;
         this._innerContainer.vertical = isVertical;
 
-        let presetClass = 'dock-preset-macos';
-        if (preset === 'ubuntu') {
-            presetClass = 'dock-preset-ubuntu';
+        let presetClass = 'dock-preset-glass';
+        if (preset === 'charcoal') {
+            presetClass = 'dock-preset-charcoal';
         } else if (preset === 'classic') {
             presetClass = 'dock-preset-classic';
         }
@@ -116,7 +116,7 @@ export const DockContainer = GObject.registerClass({
         const radius = this.settings.get_int('dock-corner-radius');
 
         let bgRgba = 'rgba(28, 28, 38, ' + translucency + ')';
-        if (preset === 'ubuntu') {
+        if (preset === 'charcoal') {
             bgRgba = 'rgba(18, 18, 18, ' + translucency + ')';
         }
 
