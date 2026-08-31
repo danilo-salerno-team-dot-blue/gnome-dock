@@ -4,7 +4,7 @@
     <key name="dock-preset" type="s">
       <default>'glass'</default>
       <summary>Dock Style Preset</summary>
-      <description>Visual preset mode: 'glass', 'charcoal', or 'classic'</description>
+      <description>Visual preset mode: 'leopard', 'glass', 'charcoal', or 'classic'</description>
     </key>
     <key name="dock-position" type="s">
       <default>'bottom'</default>

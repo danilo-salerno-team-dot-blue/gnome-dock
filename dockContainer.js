@@ -104,25 +104,30 @@ export const DockContainer = GObject.registerClass({
         this._innerContainer.vertical = isVertical;
 
         let presetClass = 'dock-preset-glass';
-        if (preset === 'charcoal') {
+        if (preset === 'leopard') {
+            presetClass = 'dock-preset-leopard';
+        } else if (preset === 'charcoal') {
             presetClass = 'dock-preset-charcoal';
         } else if (preset === 'classic') {
             presetClass = 'dock-preset-classic';
         }
 
+        this._outerBox.style_class = `dock-outer-box ${preset === 'leopard' ? 'dock-3d-shelf-base' : ''}`;
         this._innerContainer.style_class = `dock-container ${presetClass}`;
 
         const translucency = this.settings.get_double('dock-translucency');
         const radius = this.settings.get_int('dock-corner-radius');
 
+        let style = `border-radius: ${radius}px;`;
         let bgRgba = 'rgba(28, 28, 38, ' + translucency + ')';
         if (preset === 'charcoal') {
             bgRgba = 'rgba(18, 18, 18, ' + translucency + ')';
         }
 
-        this._innerContainer.set_style(
-            `background-color: ${bgRgba}; border-radius: ${radius}px;`
-        );
+        if (preset !== 'leopard')
+            style = `background-color: ${bgRgba}; ${style}`;
+
+        this._innerContainer.set_style(style);
 
         this.updatePosition();
     }

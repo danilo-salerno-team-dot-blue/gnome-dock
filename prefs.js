@@ -24,6 +24,7 @@ export default class GnomeDockPreferences extends ExtensionPreferences {
 
         // Preset Combo
         const presetModel = Gtk.StringList.new([
+            'GNOME 3D Shelf',
             'Glassmorphic Pill',
             'Charcoal Dark Accent',
             'Classic Dark'
@@ -34,7 +35,7 @@ export default class GnomeDockPreferences extends ExtensionPreferences {
             model: presetModel,
         });
 
-        const presetMap = ['glass', 'charcoal', 'classic'];
+        const presetMap = ['leopard', 'glass', 'charcoal', 'classic'];
         const currentPreset = settings.get_string('dock-preset');
         const presetIdx = presetMap.indexOf(currentPreset);
         if (presetIdx >= 0) presetRow.selected = presetIdx;
@@ -43,7 +44,11 @@ export default class GnomeDockPreferences extends ExtensionPreferences {
             const selectedStr = presetMap[presetRow.selected];
             settings.set_string('dock-preset', selectedStr);
 
-            if (selectedStr === 'glass') {
+            if (selectedStr === 'leopard') {
+                settings.set_string('indicator-style', 'dot');
+                settings.set_int('dock-corner-radius', 12);
+                settings.set_boolean('enable-magnification', true);
+            } else if (selectedStr === 'glass') {
                 settings.set_string('indicator-style', 'dot');
                 settings.set_int('dock-corner-radius', 24);
                 settings.set_boolean('enable-magnification', true);
