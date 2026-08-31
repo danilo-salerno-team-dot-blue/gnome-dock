@@ -7,11 +7,26 @@
 }
 
 .dock-outer-box.dock-3d-shelf-base {
-    padding: 2px 3px 8px;
     background-color: rgba(20, 22, 26, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 10px;
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.45), 0 13px 22px rgba(0, 0, 0, 0.50);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.45), 0 16px 26px rgba(0, 0, 0, 0.52);
+}
+
+.dock-outer-box.dock-3d-shelf-bottom {
+    padding: 3px 22px 16px;
+}
+
+.dock-outer-box.dock-3d-shelf-top {
+    padding: 16px 22px 3px;
+}
+
+.dock-outer-box.dock-3d-shelf-left {
+    padding: 22px 3px 22px 16px;
+}
+
+.dock-outer-box.dock-3d-shelf-right {
+    padding: 22px 16px 22px 3px;
 }
 
 /* Base dock panel styling */
@@ -27,7 +42,7 @@
     border: 1px solid rgba(255, 255, 255, 0.16);
     border-top-color: rgba(255, 255, 255, 0.32);
     border-radius: 8px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.20);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.20);
 }
 
 .dock-3d-shelf-base .dock-container.dock-preset-leopard {

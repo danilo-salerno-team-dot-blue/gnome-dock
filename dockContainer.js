@@ -112,7 +112,10 @@ export const DockContainer = GObject.registerClass({
             presetClass = 'dock-preset-classic';
         }
 
-        this._outerBox.style_class = `dock-outer-box ${preset === 'leopard' ? 'dock-3d-shelf-base' : ''}`;
+        const shelfClass = preset === 'leopard'
+            ? `dock-3d-shelf-base dock-3d-shelf-${position}`
+            : '';
+        this._outerBox.style_class = `dock-outer-box ${shelfClass}`;
         this._innerContainer.style_class = `dock-container ${presetClass}`;
 
         const translucency = this.settings.get_double('dock-translucency');
