@@ -14,25 +14,28 @@ export const DockManager = GObject.registerClass({
 
         this._signals = [];
 
-        this._signals.push(
-            this._appSystem.connect('app-state-changed', (sys, app) => {
+        this._signals.push({
+            source: this._appSystem,
+            id: this._appSystem.connect('app-state-changed', (sys, app) => {
                 this.emit('app-state-changed', app);
                 this.emit('dock-apps-changed');
-            })
-        );
+            }),
+        });
 
-        this._signals.push(
-            this._appSystem.connect('installed-changed', () => {
+        this._signals.push({
+            source: this._appSystem,
+            id: this._appSystem.connect('installed-changed', () => {
                 this.emit('dock-apps-changed');
-            })
-        );
+            }),
+        });
 
         if (global.settings) {
-            this._signals.push(
-                global.settings.connect('changed::favorite-apps', () => {
+            this._signals.push({
+                source: global.settings,
+                id: global.settings.connect('changed::favorite-apps', () => {
                     this.emit('dock-apps-changed');
-                })
-            );
+                }),
+            });
         }
     }
 
@@ -64,11 +67,10 @@ export const DockManager = GObject.registerClass({
     }
 
     destroy() {
-        for (const id of this._signals) {
-            if (global.settings) {
-                global.settings.disconnect(id);
+        for (const signal of this._signals) {
+            if (signal?.source && signal.id) {
+                signal.source.disconnect(signal.id);
             }
-            this._appSystem.disconnect(id);
         }
         this._signals = [];
     }

@@ -279,7 +279,7 @@ export const DockContainer = GObject.registerClass({
 
     setupAutoHide() {
         if (this._windowTrackerId) {
-            global.window_manager.disconnect(this._windowTrackerId);
+            global.display.disconnect(this._windowTrackerId);
             this._windowTrackerId = 0;
         }
 
