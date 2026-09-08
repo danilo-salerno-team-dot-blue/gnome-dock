@@ -157,13 +157,13 @@ export const DockItem = GObject.registerClass({
         });
 
         // Context Menu on Right-Click
-        const clickAction = new Clutter.ClickAction();
-        clickAction.connect('clicked', (action) => {
-            if (action.get_button() === 3) {
+        this.connect('button-press-event', (_, event) => {
+            if (event.get_button() === 3) {
                 this._showContextMenu();
+                return Clutter.EVENT_STOP;
             }
+            return Clutter.EVENT_PROPAGATE;
         });
-        this.add_action(clickAction);
 
         // Hover tooltip management
         this.connect('notify::hover', () => {
